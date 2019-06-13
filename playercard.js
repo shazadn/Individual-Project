@@ -1,26 +1,53 @@
-function newPromisePost() {
-    fetchData('http://localhost:8080/JavaEEServer-1.0/api/accounts', 'POST', { name: selectName() }, { gamerTag: selectGamerTag() }, { character: selectCharacter() })
+
+
+let userName;
+let tag;
+let char;
+
+let profile = {
+    name: userName,
+    gamerTag: tag,
+    character: char
+}
+const setName = (name) => { userName = name.value; console.log(userName); };
+const setGamerTag = (gamerTag) => { tag = gamerTag.value; console.log(tag) };   
+const setCharacter = (character) => { char = character.value; console.log(char) };          
+
+function newPlayer() {
+    //userData = JSON.stringify(profile);
+    userData = profile;
+    fetchData("accounts", 'POST', userData)
         .then((x) => {
             console.log('X', x);
-        }).then(() => {
             console.log("Successful");
-            alert("You have successfully made your playercard")
+            goIndex();
         }).catch((reason) => {
             console.log(reason)
         });
 }
 
-function selectName() {
-    const input = document.getElementById("Name").value;
-    return input;
+function goHome()
+{
+    window.location = "home.html";
 }
 
-function selectGamerTag() {
-    const input = document.getElementById("GamerTag").value;
-    return input;
-}
 
-function selectCharacter() {
-    const input = document.getElementById("Character").value;
-    return input;
-}
+
+
+
+// { name: userName }, { gamerTag: selectGamerTag() }, { character: selectCharacter() }
+
+// function selectName() {
+//     const input = document.getElementById("Name").value;
+//     return input;
+// }
+
+// function selectGamerTag() {
+//     const input = document.getElementById("GamerTag").value;
+//     return input;
+// }
+
+// function selectCharacter() {
+//     const input = document.getElementById("Character").value;
+//     return input;
+// }

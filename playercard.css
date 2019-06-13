@@ -4,13 +4,11 @@
   text-align: center;
 }
 
+
 .register{
     margin:25px;
 }
 
-.username{
-     margin:25px;
-}
 .registerbtn{
     margin:5px;
     padding: 20px;
@@ -25,3 +23,20 @@
     margin: 0;
     padding: 0;
 }  
+
+.playercard-header{
+    text-align: center;
+}
+.namefield{
+ margin: 3px;
+  padding: 20px;
+}
+
+.gamertagfield{
+    margin: 3px;
+  padding: 20px;
+}
+.characterfield{
+ margin: 3px;
+  padding: 20px;
+}
