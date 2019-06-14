@@ -3,7 +3,7 @@ function fetchData(url, method, body) {
         const req = new XMLHttpRequest();
         req.onreadystatechange = () => {
             if (req.readyState === 4) {
-                if (req.status >= 200 && req.status <= 299) {
+                if (req.status >= 200 && req.status <= 300) {
                     resolve(req.responseText);
                 } else {
                     reject("Unsuccessful");
@@ -11,9 +11,9 @@ function fetchData(url, method, body) {
                 }
             }
         };
-        req.open(method, "http://localhost:8080/JavaEEServer-1.0/api/" + url);
+        req.open(method, "http://localhost:8080/IndividualProject-1.0/api/" + url);
         req.setRequestHeader("Content-Type", "application/json")
-        req.send(JSON.stringify(body));
+        req.send(body);
     });
 
 }

@@ -9,25 +9,32 @@ let profile = {
     gamerTag: tag,
     character: char
 }
-const setName = (name) => { userName = name.value; console.log(userName); };
-const setGamerTag = (gamerTag) => { tag = gamerTag.value; console.log(tag) };   
-const setCharacter = (character) => { char = character.value; console.log(char) };          
+
+const setName = (name) => { userName = name.value; };
+const setGamerTag = (gamerTag) => { tag = gamerTag.value; };
+const setCharacter = (character) => { char = character.value; };
+
+function submit() {
+    profile.name = userName;
+    profile.gamerTag = tag;
+    profile.character = char;
+}
 
 function newPlayer() {
-    //userData = JSON.stringify(profile);
-    userData = profile;
-    fetchData("accounts", 'POST', userData)
+    submit();
+    userData = JSON.stringify(profile);
+    fetchData("playercard", 'POST', userData)
         .then((x) => {
+            // goHome()
             console.log('X', x);
             console.log("Successful");
-            goIndex();
+            console.log(profile);
         }).catch((reason) => {
             console.log(reason)
         });
 }
 
-function goHome()
-{
+function goHome() {
     window.location = "home.html";
 }
 
