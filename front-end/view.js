@@ -1,5 +1,6 @@
 
 
+
 function viewPlayerCards() {
     fetchData("playercard", 'GET', null)
         .then((r) => {
@@ -16,7 +17,7 @@ function viewPlayerCards() {
 
 function generateRows(players) {
     for (let player of players) {
-        player.actions = '<a href="update.html?id=' + player.id +'">Update</a>';
+        player.actions = '<a href="update.html?id=' + player.id + '">Update</a><br />';
         console.log(player);
         createTableRow(player);
     }

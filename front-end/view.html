@@ -40,13 +40,13 @@
     </div>
     </nav>
     <h1 class="display-3">View</h1>
-    <div class="btn-group-vertical">
-        <button id="View" class="btn btn-secondary" onclick="viewPlayerCards()">View players</button>
-        <button id="View" class="btn btn-secondary" onclick="viewFighters()">View fighters</button>
+    <div class="btn-group btn-group-toggle">
+        <button id="viewPlayers" class="btn btn-secondary" onclick="viewPlayerCards()">View players</button>
+        <button id="viewFighters" class="btn btn-secondary" onclick="viewFighters()">View fighters</button>
     </div>
 
     <div class="players">
-        <table id="players-table" class="table table-bordered">
+        <table id="playercard-titles" class="table table-bordered">
             <thread>
                 <tr>
                     <th scope="col">Id</th>
@@ -56,9 +56,10 @@
                     <th scope="col">Actions</th>
                 </tr>
             </thread>
-            <tbody>
-            </tbody>
         </table>
+        <table id="players-table" class="table table-bordered">
+          
+            </table>
     </div>
 
     <script src="serverRequest.js"></script>

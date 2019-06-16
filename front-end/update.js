@@ -1,4 +1,7 @@
-var urlParams = new URLSearchParams(window.location.search)
+let urlParams = new URLSearchParams(window.location.search)
+let userName;
+let tag;
+let char;
 
 function getDetails() {
     fetchData('playercard/' + urlParams.get("id"), 'GET', null)
@@ -14,16 +17,14 @@ function setFormFields(data) {
     document.getElementById("sName").value = data.name;
     document.getElementById("sTag").value = data.gamerTag;
     document.getElementById("sChar").value = data.character;
+    userName = data.name;
+    tag = data.tag;
+    char = data.character;
 }
 
 window.onload = function () {
     getDetails();
 }
-
-
-let userName;
-let tag;
-let char;
 
 let profile = {
     name: userName,
@@ -52,8 +53,6 @@ function updateDetails(){
             let msgId = document.getElementById("updateMsg");
             msgId.innerHTML= msg;
            msgId.style.color = "#98FB98";
-         
-
         }).catch((reason) => {
             console.log(reason);
         })
